@@ -133,7 +133,7 @@ class Udsgn_Widget_Footer extends WP_Widget {
           echo '@ ' . date("Y") . ' ' . get_bloginfo( 'name' );
         ?>
       </div>
-    </footer>
+    </footer> <!-- end footer -->
 
     <?php
 

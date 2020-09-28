@@ -83,10 +83,10 @@ class Udsgn_Widget_Home_Projects extends WP_Widget {
               Projects
             </div>
             <a href="<?php echo get_post_type_archive_link('post'); ?>" title="<?php echo $button_text; ?>" class="btn btn-lg btn-outline-secondary"><?php echo $button_text; ?></a>
-          </div>
-        </div>
-      </div>
-    </section>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+      </div> <!-- end container -->
+    </section> <!-- end section -->
 
     <?php
 

@@ -33,7 +33,7 @@ if( ! function_exists( 'udsgn_theme_setup' ) ) {
     add_theme_support( 'automatic-feed-links' );
 
     /* Add support for post thumbnails */
-    add_theme_support( 'post-thumbnail', apply_filters( 'pagelines_post-thumbnails', array( 'post' ) ) );
+    add_theme_support( 'post-thumbnails', apply_filters( 'pagelines_post-thumbnails', array('post') ) );
 
     /* Register nav menu */
     register_nav_menus( array(

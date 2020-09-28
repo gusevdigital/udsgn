@@ -188,7 +188,7 @@ class Udsgn_Widget_Home_About extends WP_Widget {
           <div class="col-lg-5">
             <h2><?php echo $title; ?></h2>
             <?php echo $desc; ?>
-          </div>
+          </div> <!-- end col -->
           <div class="col-lg-7">
             <div class="row">
               <div class="col-md-6">
@@ -201,7 +201,7 @@ class Udsgn_Widget_Home_About extends WP_Widget {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> <!-- end inner col -->
               <div class="col-md-6">
                 <div class="media">
                   <img class="mr-3" src="<?php echo $icon2_img; ?>" alt="<?php echo $icon2_title ?>">
@@ -212,8 +212,8 @@ class Udsgn_Widget_Home_About extends WP_Widget {
                     </ul>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div> <!-- end inner col -->
+            </div> <!-- end inner row -->
             <div class="row">
               <div class="col-md-6">
                 <div class="media">
@@ -225,7 +225,7 @@ class Udsgn_Widget_Home_About extends WP_Widget {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> <!-- end inner col -->
               <div class="col-md-6">
                 <div class="media">
                   <img class="mr-3" src="<?php echo $icon4_img; ?>" alt="<?php echo $icon4_title ?>">
@@ -236,12 +236,12 @@ class Udsgn_Widget_Home_About extends WP_Widget {
                     </ul>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              </div> <!-- end inner col -->
+            </div> <!-- end inner row -->
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+      </div> <!-- end container -->
+    </section> <!-- end section -->
 
     <?php
 

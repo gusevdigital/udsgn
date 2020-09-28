@@ -15,5 +15,5 @@ wp_footer();
 
 ?>
 
-</body>
-</html>
+</body> <!-- end body -->
+</html> <!-- end html -->
