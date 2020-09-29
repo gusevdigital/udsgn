@@ -11,8 +11,8 @@
 
   if ($(sections).length) {
     $(sections).each(function() {
-      if($(this).attr("data-menu-bg")) sectionsBg.push($(this).attr("data-menu-bg"));
-      if($(this).attr("data-menu-text")) sectionsText.push($(this).attr("data-menu-text"));
+      if ($(this).attr("data-menu-bg")) sectionsBg.push($(this).attr("data-menu-bg"));
+      if ($(this).attr("data-menu-text")) sectionsText.push($(this).attr("data-menu-text"));
     });
     if ($(sectionsBg).length) sectionsBg = sectionsBg.join(" ");
     if ($(sectionsText).length) sectionsText = sectionsText.join(" ");
@@ -113,6 +113,78 @@
       });
       $('.projects-filter a').removeClass('active');
       $this.addClass('active');
+    });
+  }
+
+
+  /*
+   * FORM VALIDATION
+   */
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  if (form = $("form[name='contact-form']").length) {
+    name_error_required = $("[name = 'cName']").attr('data-error-required');
+    name_error_length = $("[name = 'cName']").attr('data-error-length');
+    email_error_required = $("[name = 'cEmail']").attr('data-error-required');
+    email_error_valid = $("[name = 'cEmail']").attr('data-error-valid');
+    subject_error_required = $("[name = 'cSubject']").attr('data-error-required');
+    subject_error_length = $("[name = 'cSubject']").attr('data-error-length');
+    message_error_required = $("[name = 'cMessage']").attr('data-error-required');
+    message_error_length = $("[name = 'cMessage']").attr('data-error-length');
+    $("form[name='contact-form']").validate({
+      // Specify validation rules
+      rules: {
+        // The key name on the left side is the name attribute
+        // of an input field. Validation rules are defined
+        // on the right side
+        cName: {
+          required: true,
+          minlength: 2
+        },
+        cSubject: {
+          required: true,
+          minlength: 2
+        },
+        cEmail: {
+          required: true,
+          // Specify that email should be validated
+          // by the built-in "email" rule
+          email: true
+        },
+        cMessage: {
+          required: true,
+          minlength: 5
+        }
+      },
+      // Specify validation error messages
+      messages: {
+        cName: {
+          required: name_error_required,
+          minlength: jQuery.validator.format(name_error_length)
+        },
+        cSubject: {
+          required: subject_error_required,
+          minlength: jQuery.validator.format(subject_error_length)
+        },
+        cEmail: {
+          required: email_error_required,
+          email: email_error_valid
+        },
+        cMessage: {
+          required: message_error_required,
+          minlength: jQuery.validator.format(message_error_length)
+        }
+      },
+      errorClass: "is-invalid",
+      validClass: "is-valid",
+      errorPlacement: function(error, element) {
+        error.appendTo(element.parent(".form-group").find(".invalid-feedback"));
+      },
+      // Make sure the form is submitted to the destination defined
+      // in the "action" attribute of the form when valid
+      submitHandler: function(form) {
+        form.submit();
+      }
     });
   }
 })(jQuery);

@@ -74,7 +74,7 @@ class Udsgn_Widget_Header_Button extends WP_Widget {
     echo $before_widget;
     ?>
 
-    <a role="button" class="btn btn-sm btn-secondary" title="<?php echo $title; ?>" href="<?php echo $link; ?>"><?php echo $title; ?></a>
+    <a role="button" target="_blank" class="btn btn-sm btn-secondary" title="<?php echo $title; ?>" href="<?php echo $link; ?>"><?php echo $title; ?></a>
 
     <?php
 

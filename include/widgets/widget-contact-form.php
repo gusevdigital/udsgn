@@ -51,8 +51,10 @@ class Udsgn_Widget_Contact_Form extends WP_Widget {
         'button_text' => 'Submit',
         'error_name' => 'Please enter your name',
         'error_email' => 'Please enter your email',
+        'error_email_valid' => 'Please enter a valid email address',
         'error_subject' => 'Please enter the subject',
-        'error_message' => 'Please enter your message'
+        'error_message' => 'Please enter your message',
+        'error_length' => 'At least {0} characters!'
 
       );
 
@@ -64,6 +66,38 @@ class Udsgn_Widget_Contact_Form extends WP_Widget {
       <p>
         <label for="<?php echo $this->get_field_id( 'subtitle' ); ?>"><?php _e( 'Subtitle:', 'udsgn' ); ?></label>
         <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'subtitle' ); ?>" name="<?php echo $this->get_field_name( 'subtitle' ); ?>" value="<?php echo esc_attr( $instance['subtitle'] ); ?>">
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'name_label' ); ?>"><?php _e( 'Name Field Label:', 'udsgn' ); ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'name_label' ); ?>" name="<?php echo $this->get_field_name( 'name_label' ); ?>" value="<?php echo esc_attr( $instance['name_label'] ); ?>">
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'name_placeholder' ); ?>"><?php _e( 'Name Field Placeholder:', 'udsgn' ); ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'name_placeholder' ); ?>" name="<?php echo $this->get_field_name( 'name_placeholder' ); ?>" value="<?php echo esc_attr( $instance['name_placeholder'] ); ?>">
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'email_label' ); ?>"><?php _e( 'Email Field Label:', 'udsgn' ); ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'email_label' ); ?>" name="<?php echo $this->get_field_name( 'email_label' ); ?>" value="<?php echo esc_attr( $instance['email_label'] ); ?>">
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'email_placeholder' ); ?>"><?php _e( 'Email Field Placeholder:', 'udsgn' ); ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'email_placeholder' ); ?>" name="<?php echo $this->get_field_name( 'email_placeholder' ); ?>" value="<?php echo esc_attr( $instance['email_placeholder'] ); ?>">
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'subject_label' ); ?>"><?php _e( 'Subject Field Label:', 'udsgn' ); ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'subject_label' ); ?>" name="<?php echo $this->get_field_name( 'subject_label' ); ?>" value="<?php echo esc_attr( $instance['subject_label'] ); ?>">
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'subject_placeholder' ); ?>"><?php _e( 'Subject Field Placeholder:', 'udsgn' ); ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'subject_placeholder' ); ?>" name="<?php echo $this->get_field_name( 'subject_placeholder' ); ?>" value="<?php echo esc_attr( $instance['subject_placeholder'] ); ?>">
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'text_label' ); ?>"><?php _e( 'Text Field Label:', 'udsgn' ); ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'text_label' ); ?>" name="<?php echo $this->get_field_name( 'text_label' ); ?>" value="<?php echo esc_attr( $instance['text_label'] ); ?>">
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'button_text' ); ?>"><?php _e( 'Button Text:', 'udsgn' ); ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'button_text' ); ?>" name="<?php echo $this->get_field_name( 'button_text' ); ?>" value="<?php echo esc_attr( $instance['button_text'] ); ?>">
       </p>
       <p>
         <label for="<?php echo $this->get_field_id( 'error_title' ); ?>"><?php _e( 'Error Title:', 'udsgn' ); ?></label>
@@ -98,6 +132,10 @@ class Udsgn_Widget_Contact_Form extends WP_Widget {
         <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'error_email' ); ?>" name="<?php echo $this->get_field_name( 'error_email' ); ?>" value="<?php echo esc_attr( $instance['error_email'] ); ?>">
       </p>
       <p>
+        <label for="<?php echo $this->get_field_id( 'error_email_valid' ); ?>"><?php _e( 'Error Invalid Email:', 'udsgn' ); ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'error_email_valid' ); ?>" name="<?php echo $this->get_field_name( 'error_email_valid' ); ?>" value="<?php echo esc_attr( $instance['error_email_valid'] ); ?>">
+      </p>
+      <p>
         <label for="<?php echo $this->get_field_id( 'error_subject' ); ?>"><?php _e( 'Error Subject:', 'udsgn' ); ?></label>
         <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'error_subject' ); ?>" name="<?php echo $this->get_field_name( 'error_subject' ); ?>" value="<?php echo esc_attr( $instance['error_subject'] ); ?>">
       </p>
@@ -106,36 +144,8 @@ class Udsgn_Widget_Contact_Form extends WP_Widget {
         <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'error_message' ); ?>" name="<?php echo $this->get_field_name( 'error_message' ); ?>" value="<?php echo esc_attr( $instance['error_message'] ); ?>">
       </p>
       <p>
-        <label for="<?php echo $this->get_field_id( 'name_label' ); ?>"><?php _e( 'Name Field Label:', 'udsgn' ); ?></label>
-        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'name_label' ); ?>" name="<?php echo $this->get_field_name( 'name_label' ); ?>" value="<?php echo esc_attr( $instance['name_label'] ); ?>">
-      </p>
-      <p>
-        <label for="<?php echo $this->get_field_id( 'name_placeholder' ); ?>"><?php _e( 'Name Field Placeholder:', 'udsgn' ); ?></label>
-        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'name_placeholder' ); ?>" name="<?php echo $this->get_field_name( 'name_placeholder' ); ?>" value="<?php echo esc_attr( $instance['name_placeholder'] ); ?>">
-      </p>
-      <p>
-        <label for="<?php echo $this->get_field_id( 'email_label' ); ?>"><?php _e( 'Email Field Label:', 'udsgn' ); ?></label>
-        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'email_label' ); ?>" name="<?php echo $this->get_field_name( 'email_label' ); ?>" value="<?php echo esc_attr( $instance['email_label'] ); ?>">
-      </p>
-      <p>
-        <label for="<?php echo $this->get_field_id( 'email_placeholder' ); ?>"><?php _e( 'Email Field Placeholder:', 'udsgn' ); ?></label>
-        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'email_placeholder' ); ?>" name="<?php echo $this->get_field_name( 'email_placeholder' ); ?>" value="<?php echo esc_attr( $instance['email_placeholder'] ); ?>">
-      </p>
-      <p>
-        <label for="<?php echo $this->get_field_id( 'subject_label' ); ?>"><?php _e( 'Subject Field Label:', 'udsgn' ); ?></label>
-        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'subject_label' ); ?>" name="<?php echo $this->get_field_name( 'subject_label' ); ?>" value="<?php echo esc_attr( $instance['subject_label'] ); ?>">
-      </p>
-      <p>
-        <label for="<?php echo $this->get_field_id( 'subject_placeholder' ); ?>"><?php _e( 'Subject Field Placeholder:', 'udsgn' ); ?></label>
-        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'subject_placeholder' ); ?>" name="<?php echo $this->get_field_name( 'subject_placeholder' ); ?>" value="<?php echo esc_attr( $instance['subject_placeholder'] ); ?>">
-      </p>
-      <p>
-        <label for="<?php echo $this->get_field_id( 'text_label' ); ?>"><?php _e( 'Text Field Label:', 'udsgn' ); ?></label>
-        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'text_label' ); ?>" name="<?php echo $this->get_field_name( 'text_label' ); ?>" value="<?php echo esc_attr( $instance['text_label'] ); ?>">
-      </p>
-      <p>
-        <label for="<?php echo $this->get_field_id( 'button_text' ); ?>"><?php _e( 'Button Text:', 'udsgn' ); ?></label>
-        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'button_text' ); ?>" name="<?php echo $this->get_field_name( 'button_text' ); ?>" value="<?php echo esc_attr( $instance['button_text'] ); ?>">
+        <label for="<?php echo $this->get_field_id( 'error_length' ); ?>"><?php _e( 'Error Short Length:', 'udsgn' ); ?></label>
+        <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'error_length' ); ?>" name="<?php echo $this->get_field_name( 'error_length' ); ?>" value="<?php echo esc_attr( $instance['error_length'] ); ?>">
       </p>
       <?php
   }
@@ -165,8 +175,10 @@ class Udsgn_Widget_Contact_Form extends WP_Widget {
     $instance['button_text'] = ( !empty( $new_instance['button_text'] ) ) ? strip_tags( stripslashes( $new_instance['button_text'] ) ) : '';
     $instance['error_name'] = ( !empty( $new_instance['error_name'] ) ) ? strip_tags( stripslashes( $new_instance['error_name'] ) ) : '';
     $instance['error_email'] = ( !empty( $new_instance['error_email'] ) ) ? strip_tags( stripslashes( $new_instance['error_email'] ) ) : '';
+    $instance['error_email_valid'] = ( !empty( $new_instance['error_email_valid'] ) ) ? strip_tags( stripslashes( $new_instance['error_email_valid'] ) ) : '';
     $instance['error_subject'] = ( !empty( $new_instance['error_subject'] ) ) ? strip_tags( stripslashes( $new_instance['error_subject'] ) ) : '';
     $instance['error_message'] = ( !empty( $new_instance['error_message'] ) ) ? strip_tags( stripslashes( $new_instance['error_message'] ) ) : '';
+    $instance['error_length'] = ( !empty( $new_instance['error_length'] ) ) ? strip_tags( stripslashes( $new_instance['error_length'] ) ) : '';
 
     return $instance;
   }
@@ -194,8 +206,10 @@ class Udsgn_Widget_Contact_Form extends WP_Widget {
     $button_text = $instance['button_text'];
     $error_name = $instance['error_name'];
     $error_email = $instance['error_email'];
+    $error_email_valid = $instance['error_email_valid'];
     $error_subject = $instance['error_subject'];
     $error_message = $instance['error_message'];
+    $error_length = $instance['error_length'];
 
     $errors = array();
     $isError = false;
@@ -282,44 +296,36 @@ class Udsgn_Widget_Contact_Form extends WP_Widget {
                 </div>
               </div>
             <?php endif; ?>
-            <form class="contact-form" action="<?php the_permalink(); ?>#form" method="post" novalidate>
+            <form class="contact-form" action="<?php the_permalink(); ?>#form" method="post" name="contact-form" novalidate>
               <div class="form-row">
                 <div class="form-group col-lg-6">
                   <label for="contact-name"><?php echo $name_label; ?></label>
-                  <input type="text" name="cName" class="form-control<?php if( isset( $errors[ 'errorName' ] ) ) echo ' is-invalid';?>" id="contact-name" placeholder="<?php echo $name_placeholder ?>" value="<?php if ( isset( $_POST[ 'cName' ] ) ) echo $_POST[ 'cName' ]; ?>" />
-                  <?php if( isset( $errors[ 'errorName' ] ) ) : ?>
-                    <div class="invalid-feedback">
-                      <?php echo $errors[ 'errorName' ]; ?>
-                    </div>
-                  <?php endif; ?>
+                  <input type="text" name="cName" class="form-control<?php if( isset( $errors[ 'errorName' ] ) ) echo ' is-invalid';?>" id="contact-name" placeholder="<?php echo $name_placeholder ?>" value="<?php if ( isset( $_POST[ 'cName' ] ) ) echo $_POST[ 'cName' ]; ?>" data-error-required="<?php echo $error_name; ?>" data-error-length="<?php echo $error_length; ?>"/>
+                  <div class="invalid-feedback">
+                    <?php if( isset( $errors[ 'errorName' ] ) ) echo $errors[ 'errorName' ]; ?>
+                  </div>
                 </div>
                 <div class="form-group col-lg-6">
                   <label for="contact-email"><?php echo $email_label; ?></label>
-                  <input type="email" name="cEmail" class="form-control<?php if( isset( $errors[ 'errorEmail' ] ) ) echo ' is-invalid';?>" id="contact-email" placeholder="<?php echo $email_placeholder ?>" value="<?php if ( isset( $_POST[ 'cEmail' ] ) ) echo $_POST[ 'cEmail' ]; ?>" />
-                  <?php if( isset( $errors[ 'errorEmail' ] ) ) : ?>
-                    <div class="invalid-feedback">
-                      <?php echo $errors[ 'errorEmail' ]; ?>
-                    </div>
-                  <?php endif; ?>
+                  <input type="email" name="cEmail" class="form-control<?php if( isset( $errors[ 'errorEmail' ] ) ) echo ' is-invalid';?>" id="contact-email" placeholder="<?php echo $email_placeholder ?>" value="<?php if ( isset( $_POST[ 'cEmail' ] ) ) echo $_POST[ 'cEmail' ]; ?>"  data-error-required="<?php echo $error_email; ?>" data-error-valid="<?php echo $error_email_valid; ?>"/>
+                  <div class="invalid-feedback">
+                    <?php if( isset( $errors[ 'errorEmail' ] ) ) echo $errors[ 'errorEmail' ]; ?>
+                  </div>
                 </div>
               </div>
               <div class="form-group">
                 <label for="contact-subject"><?php echo $subject_label; ?></label>
-                <input type="text" name="cSubject" class="form-control<?php if( isset( $errors[ 'errorSubject' ] ) ) echo ' is-invalid';?>" id="contact-subject" placeholder="<?php echo $subject_placeholder ?>" value="<?php if ( isset( $_POST[ 'cSubject' ] ) ) echo $_POST[ 'cSubject' ]; ?>" />
-                <?php if( isset( $errors[ 'errorSubject' ] ) ) : ?>
-                  <div class="invalid-feedback">
-                    <?php echo $errors[ 'errorSubject' ]; ?>
-                  </div>
-                <?php endif; ?>
+                <input type="text" name="cSubject" class="form-control<?php if( isset( $errors[ 'errorSubject' ] ) ) echo ' is-invalid';?>" id="contact-subject" placeholder="<?php echo $subject_placeholder ?>" value="<?php if ( isset( $_POST[ 'cSubject' ] ) ) echo $_POST[ 'cSubject' ]; ?>"  data-error-required="<?php echo $error_subject; ?>" data-error-length="<?php echo $error_length; ?>"/>
+                <div class="invalid-feedback">
+                  <?php if( isset( $errors[ 'errorSubject' ] ) ) echo $errors[ 'errorSubject' ]; ?>
+                </div>
               </div>
               <div class="form-group">
                 <label for="contact-message"><?php echo $text_label; ?></label>
-                <textarea name="cMessage" class="form-control<?php if( isset( $errors[ 'errorSubject' ] ) ) echo ' is-invalid';?>" id="contact-message" rows="3"><?php if ( isset( $_POST[ 'cMessage' ] ) ) echo $_POST[ 'cMessage' ]; ?></textarea>
-                <?php if( isset( $errors[ 'errorMessage' ] ) ) : ?>
-                  <div class="invalid-feedback">
-                    <?php echo $errors[ 'errorMessage' ]; ?>
-                  </div>
-                <?php endif; ?>
+                <textarea name="cMessage" class="form-control<?php if( isset( $errors[ 'errorSubject' ] ) ) echo ' is-invalid';?>" id="contact-message" rows="3" data-error-required="<?php echo $error_message; ?>" data-error-length="<?php echo $error_length; ?>"><?php if ( isset( $_POST[ 'cMessage' ] ) ) echo $_POST[ 'cMessage' ]; ?></textarea>
+                <div class="invalid-feedback">
+                  <?php if( isset( $errors[ 'errorMessage' ] ) ) echo $errors[ 'errorMessage' ]; ?>
+                </div>
               </div>
               <input type="hidden" name="is-submitted" id="is-submitted" value="true" />
               <button type="submit" class="btn btn-outline-secondary"><?php echo $button_text; ?></button>
