@@ -79,9 +79,42 @@ class Udsgn_Widget_Home_Projects extends WP_Widget {
         <div class="row">
           <div class="col-lg-12">
             <h2 class="text-light"><?php echo $title; ?></h2>
-            <div class="row">
-              Projects
-            </div>
+            <div class="row projects-items">
+              <?php
+                $queryArgs = array(
+                  /* Get feautred posts */
+                  'cat' => '7',
+                  /* Get all posts */
+                  'posts_per_page' => '6',
+                );
+                $query = new WP_Query( $queryArgs );
+              ?>
+              <?php if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
+                <?php if ( has_post_thumbnail() ) : ?>
+                  <?php
+                    /* Collect all post categories for class attribute */
+                    $slugs = '';
+                    $currentCategories = get_the_category();
+
+                    foreach ($currentCategories as $currentCategory) {
+                      $slugs .= ' f' . $currentCategory -> slug;
+                    }
+                  ?>
+                  <figure class="col-lg-4<?php echo $slugs; ?>">
+                    <a class="card bg-dark text-white shadow text-center" href="<?php the_permalink(); ?>">
+                      <?php the_post_thumbnail( 'project-thumbnail', array( 'class' => 'img-fluid card-img' ) ); ?>
+                      <div class="card-img-overlay d-flex flex-column justify-content-center">
+                        <h4 class="text-white"><?php the_title(); ?></h4>
+                        <div class="project-category">
+                          <?php udsgn_project_meta( $currentCategories, 7 ); ?>
+                        </div>
+                      </div>
+                    </a>
+                  </figure>
+                <?php endif; ?>
+              <?php endwhile; ?>
+              <?php endif; ?>
+            </div> <!-- end row -->
             <a href="<?php echo get_post_type_archive_link('post'); ?>" title="<?php echo $button_text; ?>" class="btn btn-lg btn-outline-secondary"><?php echo $button_text; ?></a>
           </div> <!-- end col -->
         </div> <!-- end row -->

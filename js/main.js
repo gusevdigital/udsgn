@@ -11,7 +11,6 @@
 
   if ($(sections).length) {
     $(sections).each(function() {
-      console.log(sectionsBg);
       if($(this).attr("data-menu-bg")) sectionsBg.push($(this).attr("data-menu-bg"));
       if($(this).attr("data-menu-text")) sectionsText.push($(this).attr("data-menu-text"));
     });
@@ -106,6 +105,7 @@
     var $container = $('.projects-items').isotope();
     // filter items on button click
     $('.projects-filter').on('click', 'a', function() {
+
       $this = $(this);
       var filterValue = $this.attr('data-filter');
       $container.isotope({

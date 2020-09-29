@@ -88,8 +88,12 @@ if ( ! function_exists( 'udsgn_scripts' ) ) {
 
     wp_register_script( 'bootstrap-js', THEMEROOT . '/node_modules/bootstrap/dist/js/bootstrap.min.js', array( 'jquery' ), false, true );
     wp_register_script( 'main-js', JS . '/main.js', array( 'jquery' ), false, true );
+    wp_register_script( 'isotope-js', THEMEROOT . '/node_modules/isotope-layout/dist/isotope.pkgd.min.js', array( 'jquery' ), false, true );
 
     wp_enqueue_script( 'bootstrap-js' );
+    if( is_home() ) {
+      wp_enqueue_script( 'isotope-js' );
+    }
     wp_enqueue_script ( 'main-js' );
 
     wp_enqueue_style ( 'theme-css', CSS . '/theme.min.css' );
@@ -111,7 +115,7 @@ if ( ! function_exists( 'udsgn_widget_init' ) ) {
       register_sidebar( array(
         'name' => __( 'Header', 'udsgn' ),
         'id' => 'header-sidebar',
-        'description' => __( 'Content for Header', 'udsgn' ),
+        'description' => __( 'Content for header', 'udsgn' ),
         'before_widget' => '',
         'after_widget' => '',
         'before_title' => '',
@@ -120,7 +124,7 @@ if ( ! function_exists( 'udsgn_widget_init' ) ) {
       register_sidebar( array(
         'name' => __( 'Home', 'udsgn' ),
         'id' => 'home-sidebar',
-        'description' => __( 'Content for Home page', 'udsgn' ),
+        'description' => __( 'Content for "Home" page', 'udsgn' ),
         'before_widget' => '',
         'after_widget' => '',
         'before_title' => '',
@@ -129,7 +133,16 @@ if ( ! function_exists( 'udsgn_widget_init' ) ) {
       register_sidebar( array(
         'name' => __( 'Footer', 'udsgn' ),
         'id' => 'footer-sidebar',
-        'description' => __( 'Content for Footer', 'udsgn' ),
+        'description' => __( 'Content for footer', 'udsgn' ),
+        'before_widget' => '',
+        'after_widget' => '',
+        'before_title' => '',
+        'after_title' => ''
+      ));
+      register_sidebar( array(
+        'name' => __( 'Contact', 'udsgn' ),
+        'id' => 'contact-sidebar',
+        'description' => __( 'Content for "Contact" page"', 'udsgn' ),
         'before_widget' => '',
         'after_widget' => '',
         'before_title' => '',
@@ -140,7 +153,38 @@ if ( ! function_exists( 'udsgn_widget_init' ) ) {
   add_action ( 'widgets_init', 'udsgn_widget_init' );
 }
 
+/* -------------------------------------------------- */
+/* 4. GET PROJECT META */
+/* -------------------------------------------------- */
+if ( ! function_exists( 'udsgn_project_meta' ) ) {
+  function udsgn_project_meta( $categories, $hide_category ) {
+    if ( get_post_type() === 'post' ) {
+      $categories_array = array();
+      $meta = '';
 
+      foreach ($categories as $key => $category) {
+        if( $category->term_id == $hide_category ) {
+          unset( $categories[ $key] );
+        }
+      }
+
+      $categories_array = array_map(function($category) { return '<span class="project-category-item">' . $category->name . '</span>' ;}, $categories );
+      $meta = join( '<span>/</span>', $categories_array );
+
+      echo $meta;
+
+    }
+  }
+}
+
+/* -------------------------------------------------- */
+/* 5. VALIDATE FIELD LENGTH */
+/* -------------------------------------------------- */
+if ( ! function_exists( 'udsgn_validate_length' ) ) {
+  function udsgn_validate_length( $fieldValue, $minLength ) {
+    return ( strlen( trim( $fieldValue ) ) > $minLength );
+  }
+}
 
 /* -------------------------------------------------- */
 /* 6. WIDGETS */
@@ -150,5 +194,7 @@ require_once( get_template_directory(). '/include/widgets/widget-home-header.php
 require_once( get_template_directory(). '/include/widgets/widget-home-about.php' );
 require_once( get_template_directory(). '/include/widgets/widget-home-projects.php' );
 require_once( get_template_directory(). '/include/widgets/widget-footer.php' );
+require_once( get_template_directory(). '/include/widgets/widget-contact-contacts.php' );
+require_once( get_template_directory(). '/include/widgets/widget-contact-form.php' );
 
 ?>
