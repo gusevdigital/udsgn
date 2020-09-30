@@ -22,6 +22,7 @@ get_header();
 <section id="projects" class="pt-10 bg-blue-110" data-menu-bg="bg-blue-110" data-menu-text="navbar-dark">
   <div class="container">
     <div class="row">
+      <?php if ( have_posts() ) : ?>
       <div class="col-lg-12">
         <div class="nav projects-filter text-light">
           <div class="projects-title"><?php _e( 'Filter by:', 'udsgn' ); ?></div>
@@ -85,6 +86,14 @@ get_header();
         <?php endif; ?>
       <?php endwhile; ?>
       <?php endif; ?>
+    <?php else : ?>
+      <div class="col-lg-12 text-center text-light">
+        <h3>404</h3>
+        <div class="lead">
+          You don't want to be here.
+        </div>
+      </div> <!-- end col -->
+    <?php endif; ?>
     </div> <!-- end row -->
   </div> <!-- end container -->
 </section> <!-- end section -->
