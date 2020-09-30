@@ -88,7 +88,7 @@ get_header();
       <?php endif; ?>
     <?php else : ?>
       <div class="col-lg-12 text-center text-light">
-        <h3>404</h3> 
+        <h3>404</h3>
         <div class="lead">
           <?php _e( "You don't want to be here.", 'udsgn' ); ?>
         </div>
