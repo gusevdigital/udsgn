@@ -300,14 +300,14 @@ class Udsgn_Widget_Contact_Form extends WP_Widget {
               <div class="form-row">
                 <div class="form-group col-lg-6">
                   <label for="contact-name"><?php echo $name_label; ?></label>
-                  <input type="text" name="cName" class="form-control<?php if( isset( $errors[ 'errorName' ] ) ) echo ' is-invalid';?>" id="contact-name" placeholder="<?php echo $name_placeholder ?>" value="<?php if ( isset( $_POST[ 'cName' ] ) ) echo $_POST[ 'cName' ]; ?>" data-error-required="<?php echo $error_name; ?>" data-error-length="<?php echo $error_length; ?>"/>
+                  <input type="text" name="cName" class="form-control<?php if( isset( $errors[ 'errorName' ] ) ) echo ' is-invalid';?>" id="contact-name" placeholder="<?php echo $name_placeholder ?>" value="<?php if ( isset( $_POST[ 'cName' ] ) && ! isset( $emailIsSent ) ) echo $_POST[ 'cName' ]; ?>" data-error-required="<?php echo $error_name; ?>" data-error-length="<?php echo $error_length; ?>"/>
                   <div class="invalid-feedback">
                     <?php if( isset( $errors[ 'errorName' ] ) ) echo $errors[ 'errorName' ]; ?>
                   </div>
                 </div>
                 <div class="form-group col-lg-6">
                   <label for="contact-email"><?php echo $email_label; ?></label>
-                  <input type="email" name="cEmail" class="form-control<?php if( isset( $errors[ 'errorEmail' ] ) ) echo ' is-invalid';?>" id="contact-email" placeholder="<?php echo $email_placeholder ?>" value="<?php if ( isset( $_POST[ 'cEmail' ] ) ) echo $_POST[ 'cEmail' ]; ?>"  data-error-required="<?php echo $error_email; ?>" data-error-valid="<?php echo $error_email_valid; ?>"/>
+                  <input type="email" name="cEmail" class="form-control<?php if( isset( $errors[ 'errorEmail' ] ) ) echo ' is-invalid';?>" id="contact-email" placeholder="<?php echo $email_placeholder ?>" value="<?php if ( isset( $_POST[ 'cEmail' ] ) && ! isset( $emailIsSent ) ) echo $_POST[ 'cEmail' ]; ?>"  data-error-required="<?php echo $error_email; ?>" data-error-valid="<?php echo $error_email_valid; ?>"/>
                   <div class="invalid-feedback">
                     <?php if( isset( $errors[ 'errorEmail' ] ) ) echo $errors[ 'errorEmail' ]; ?>
                   </div>
@@ -315,14 +315,14 @@ class Udsgn_Widget_Contact_Form extends WP_Widget {
               </div>
               <div class="form-group">
                 <label for="contact-subject"><?php echo $subject_label; ?></label>
-                <input type="text" name="cSubject" class="form-control<?php if( isset( $errors[ 'errorSubject' ] ) ) echo ' is-invalid';?>" id="contact-subject" placeholder="<?php echo $subject_placeholder ?>" value="<?php if ( isset( $_POST[ 'cSubject' ] ) ) echo $_POST[ 'cSubject' ]; ?>"  data-error-required="<?php echo $error_subject; ?>" data-error-length="<?php echo $error_length; ?>"/>
+                <input type="text" name="cSubject" class="form-control<?php if( isset( $errors[ 'errorSubject' ] ) ) echo ' is-invalid';?>" id="contact-subject" placeholder="<?php echo $subject_placeholder ?>" value="<?php if ( isset( $_POST[ 'cSubject' ] ) && ! isset( $emailIsSent ) ) echo $_POST[ 'cSubject' ]; ?>"  data-error-required="<?php echo $error_subject; ?>" data-error-length="<?php echo $error_length; ?>"/>
                 <div class="invalid-feedback">
                   <?php if( isset( $errors[ 'errorSubject' ] ) ) echo $errors[ 'errorSubject' ]; ?>
                 </div>
               </div>
               <div class="form-group">
                 <label for="contact-message"><?php echo $text_label; ?></label>
-                <textarea name="cMessage" class="form-control<?php if( isset( $errors[ 'errorSubject' ] ) ) echo ' is-invalid';?>" id="contact-message" rows="3" data-error-required="<?php echo $error_message; ?>" data-error-length="<?php echo $error_length; ?>"><?php if ( isset( $_POST[ 'cMessage' ] ) ) echo $_POST[ 'cMessage' ]; ?></textarea>
+                <textarea name="cMessage" class="form-control<?php if( isset( $errors[ 'errorSubject' ] ) ) echo ' is-invalid';?>" id="contact-message" rows="3" data-error-required="<?php echo $error_message; ?>" data-error-length="<?php echo $error_length; ?>"><?php if ( isset( $_POST[ 'cMessage' ] ) && ! isset( $emailIsSent ) ) echo $_POST[ 'cMessage' ]; ?></textarea>
                 <div class="invalid-feedback">
                   <?php if( isset( $errors[ 'errorMessage' ] ) ) echo $errors[ 'errorMessage' ]; ?>
                 </div>
