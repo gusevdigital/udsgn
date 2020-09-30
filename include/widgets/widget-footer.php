@@ -103,7 +103,7 @@ class Udsgn_Widget_Footer extends WP_Widget {
     echo $before_widget;
     ?>
 
-    <footer class="py-10 bg-pink-20 text-center">
+    <footer class="py-10 bg-pink-20 text-center" data-menu-bg="bg-pink-20" data-menu-text="navbar-light">
       <h2><?php echo $title; ?></h2>
       <a href="<?php echo esc_url( get_page_link( 13 ) ); ?>" title="Get in touch" class="btn btn-lg btn-outline-primary"><?php echo $button_text; ?></a>
       <ul class="list-inline socials">
