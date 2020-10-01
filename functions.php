@@ -89,6 +89,7 @@ if ( ! function_exists( 'udsgn_scripts' ) ) {
     wp_register_script( 'bootstrap-js', THEMEROOT . '/node_modules/bootstrap/dist/js/bootstrap.min.js', array( 'jquery' ), false, true );
     wp_register_script( 'isotope-js', THEMEROOT . '/node_modules/isotope-layout/dist/isotope.pkgd.min.js', array( 'jquery' ), false, true );
     wp_register_script( 'validation-js', THEMEROOT . '/node_modules/jquery-validation/dist/jquery.validate.min.js', array( 'jquery' ), false, true );
+    wp_register_script( 'lazy-js', THEMEROOT . '/node_modules/jquery-lazy/jquery.lazy.min.js', array( 'jquery' ), false, true );
     wp_register_script( 'main-js', JS . '/main.js', array( 'jquery' ), false, true );
 
     wp_enqueue_script( 'bootstrap-js' );
@@ -96,6 +97,7 @@ if ( ! function_exists( 'udsgn_scripts' ) ) {
       wp_enqueue_script( 'isotope-js' );
     }
     wp_enqueue_script ( 'validation-js' );
+    wp_enqueue_script ( 'lazy-js' );
     wp_enqueue_script ( 'main-js' );
 
     wp_enqueue_style ( 'theme-css', CSS . '/theme.min.css' );

@@ -106,7 +106,7 @@ class Udsgn_Widget_Home_Header extends WP_Widget {
             </div>
           </div>
           <div class="col-lg-6">
-            <img src="<?php echo $instance[ 'image' ]; ?>" alt="<?php echo $title_inline; ?>" class="img-fluid shadow rounded-lg image" />
+            <img data-src="<?php echo $instance[ 'image' ]; ?>" alt="<?php echo $title_inline; ?>" class="img-fluid lazy shadow rounded-lg image" />
           </div> <!-- end col -->
         </div> <!-- end row -->
       </div> <!-- end container -->

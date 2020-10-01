@@ -102,7 +102,7 @@ class Udsgn_Widget_Home_Projects extends WP_Widget {
                   ?>
                   <figure class="col-lg-4<?php echo $slugs; ?>">
                     <a class="card bg-dark text-white shadow text-center" href="<?php the_permalink(); ?>">
-                      <?php the_post_thumbnail( 'project-thumbnail', array( 'class' => 'img-fluid card-img' ) ); ?>
+                      <img data-src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'project-thumbnail' ); ?>" class="img-fluid card-img lazy" />
                       <div class="card-img-overlay d-flex flex-column justify-content-center">
                         <h4 class="text-white"><?php the_title(); ?></h4>
                         <div class="project-category">

@@ -116,6 +116,13 @@
     });
   }
 
+  /*
+   * IMAGES LAZY LOAD
+   */
+  $(function() {
+    $('.lazy').Lazy();
+  });
+
 
   /*
    * FORM VALIDATION
